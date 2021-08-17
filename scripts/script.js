@@ -4,9 +4,7 @@ const todoControl = document.querySelector('.todo-control'),
    todoList = document.querySelector('.todo-list'),
    todoCompleted = document.querySelector('.todo-completed');
 
-let todoData = [];
-
-todoData = JSON.parse(localStorage.getItem("todo")) || [];
+const todoData = JSON.parse(localStorage.getItem("todo")) || [];
 
 const render = function () {
    todoList.textContent = '';
@@ -53,7 +51,7 @@ todoControl.addEventListener('submit', function (event) {
       completed: false
    }
 
-   if (newTodo.value === '') {
+   if (newTodo.value.trim() === '') {
       return
    } else {
       todoData.push(newTodo);
